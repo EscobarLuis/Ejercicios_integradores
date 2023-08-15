@@ -18,7 +18,7 @@ class Persona():
 
     @nombre.setter
     def nombre(self, nombre):
-        if nombre.isalpha():
+        if nombre != "":
             self._nombre = nombre
         else:
             print("El nombre no es valido.")
@@ -26,7 +26,7 @@ class Persona():
     
     @edad.setter
     def edad(self, edad):
-        if edad.isdecimal() and edad > 0:
+        if edad > 0:
             self._edad = edad
         else:
             print("La edad debe ser un numero entero mayor que 0.")
@@ -34,17 +34,17 @@ class Persona():
     
     @dni.setter
     def dni(self, dni):
-        if dni.isdecimal():
+        if dni > 0:
             self._dni = dni
         else:
-            print("El dni debe ser un numero.") 
+            print("El dni debe ser un numero entero mayor que 0.") 
         
     
     def mostrar(self):
-        print(f"nombre: {self._nombre}, edad: {self._edad}, dni: {self._dni}")
+        print(f"nombre: {self.nombre}, edad: {self.edad}, dni: {self.dni}")
 
     def es_mayor_de_edad(self):
-        return self._edad >= 18
+        return self.edad >= 18
     
 def main():
     
