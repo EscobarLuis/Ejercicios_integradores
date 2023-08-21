@@ -2,7 +2,7 @@ def ingresar_numero():
     while True:
         try:
             dato = int(input("Ingrese un numero: "))
-        except:
+        except ValueError:
             print("ERROR. Vuelva a ingresar el dato.")
         else:
             return dato
