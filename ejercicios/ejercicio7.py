@@ -4,30 +4,30 @@ class Cuenta():
     
     def __init__(self, titular, cantidad = 0):
         """""Contructor de Cuenta: recibe Persona y opcional la cantidad numero """
-        self._persona = titular
-        self._cantidad = cantidad
+        self.__persona = titular
+        self.__cantidad = cantidad
 
     @property
     def persona(self):
-        return self._persona
+        return self.__persona
     
     @property
     def cantidad(self):
-        return self._cantidad
+        return self.__cantidad
 
     @persona.setter
     def persona(self, titular):
-        self._persona = titular
+        self.__persona = titular
     
     def retirar(self, monto):
         if monto > 0: 
-            self._cantidad -= monto
+            self.__cantidad -= monto
         else:
             print ("El monto a retirar debe ser positivo o cero.")
     
     def ingresar(self, monto):
         if monto > 0: 
-            self._cantidad += monto
+            self.__cantidad += monto
         else:
             print ("El monto a ingresar debe ser positivo o cero.")
     
@@ -50,10 +50,6 @@ def main():
     cuenta1.mostrar()
 
  
-
-
-
-
 if __name__ == "__main__":
     main()
 
