@@ -5,16 +5,22 @@ from ejercicio6 import Persona
 class CuentaJoven(Cuenta):
     
     def __init__(self, titular, cantidad = 0, bonificacion = 0):
+        if bonificacion < 0 or bonificacion > 100:
+            print("La bonificacion debe ser un numero entre 0 y 100.") 
+            return
         super().__init__(titular, cantidad)
-        self._bonificacion = bonificacion
+        self.__bonificacion = bonificacion
     
     @property
     def bonificacion(self):
-        return self._bonificacion
+        return self.__bonificacion
     
     @bonificacion.setter
     def bonificacion(self, bonificacion):
-        self._bonificacion = bonificacion
+        if bonificacion < 0 or bonificacion > 100:
+            print("La bonificacion debe ser un numero entre 0 y 100.") 
+            return
+        self.__bonificacion = bonificacion
     
     def es_titular_valido(self):
 
@@ -35,6 +41,7 @@ def main():
     
     titular = Persona("Juan", 23, 123456)    
     cuentaJo = CuentaJoven(titular, 100, 2)
+    cuentaJ1 = CuentaJoven(titular, 100, 101)
 
     cuentaJo.mostrar()
     cuentaJo.retirar(50)
